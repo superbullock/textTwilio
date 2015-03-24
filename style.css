@@ -1,0 +1,166 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+}
+
+.header {
+  height: 50px;
+  padding: 10px 40px;
+  box-sizing: border-box;
+  background: rgba(111, 159, 255, 1);
+}
+
+.brand {
+  float: left;
+  color: white;
+  font-size: 2em;
+  display: inline-block;
+  margin: 0;
+}
+
+.brandbtn {
+  border: none;
+  background: none;
+  margin: 0;
+}
+
+.loginlink {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  text-decoration: none;
+}
+
+.loginlink:hover {
+  color: rgba(60, 99, 178, 1)
+}
+
+.loginlink:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.loginlink:visited:hover {
+  color: rgba(60, 99, 178, 1)
+}
+
+.mainView {
+  padding: 40px 60px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.card {
+  margin: auto;
+  width: 60%;
+  min-width: 430px;
+  background: rgba(60, 99, 178, .5);
+  color: white;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.toolbarTitle {
+  margin: 0;
+}
+
+.toolbar {
+  height: 10%;
+  padding: 10px;
+  color: rgba(60, 99, 178, .7);
+  background: white;
+  margin-bottom: 10px;
+}
+
+.shadow {
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.splashTextArea {
+  color: rgba(60, 99, 178, .7);
+  background: white;
+  width: 80%;
+  border: 0px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.input {
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  color: rgba(60, 99, 178, .7);
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  background: rgba(255,143,129,1);
+  color: white;
+  border: .5px solid white;
+}
+
+.btn-default {
+  background: white;
+  color: #989A9A;
+}
+
+.btn:hover {
+  color: rgba(60, 99, 178, 1)
+}
+
+.loginCard {
+  width: 60%;
+  height: 40%;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  color: rgba(60, 99, 178, 1)
+}
+
+.link:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.link:visited:hover {
+  color: rgba(60, 99, 178, 1)
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form-container {
+  width: 50%;
+  min-width: 400px;
+  margin: 0 auto;
+}
+
+.pull-right {
+  float: right;
+  margin-right: 20px;
+}
+
+.form-row {
+  text-align: right;
+}
+
