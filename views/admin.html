@@ -1,0 +1,34 @@
+<div>
+
+  <form ng-submit="composeMessage(message)">
+    <label> Message Text</label>
+    <textarea ng-model='message.body' cols="30" rows="10"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <br/>
+
+  <button ng-click="toggleMessageStream()">Show Recent Messages</button>
+  <br/>
+  <div ng-repeat="message in messages" ng-show="messageStream">
+    {{message.body}}
+  </div>
+  <br/>
+  <form ng-submit="createContact(newContact)">
+    <label>Name</label>
+    <input placeholder="John Doe" ng-model="newContact.name" type="text"/>
+    <label>10 Digit Phone Number</label>
+    <input placeholder="8015386655" ng-model="newContact.phone" type="text" required/>
+    <button type="submit">Add Contact</button>
+  </form>
+  <br/><br/>
+
+  <div>
+    <div ng-repeat="contact in contacts">
+      <div>
+        <button ng-click="deleteContact(contact._id)">x</button>
+        {{contact.name}} - {{contact.phone}}
+        <hr/>
+      </div>
+    </div>
+  </div>
+</div>

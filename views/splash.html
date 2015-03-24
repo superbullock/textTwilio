@@ -1,0 +1,13 @@
+<h2>Welcome!</h2>
+
+
+<h4>Send yourself a text! Go on try it out!</h4>
+
+<form ng-submit="sendMessage(message)">
+  <label>Enter your number</label>
+  <input required ng-model="message.to" placeholder="867-5309" type="text"/>
+
+  <label>Message Body</label>
+  <textarea required cols="30" rows="10" ng-model="message.body"></textarea>
+  <button type="submit">Send</button>
+</form>
