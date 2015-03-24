@@ -1,25 +1,56 @@
-<form ng-submit="authEmail(auth)" ng-show="login">
-  <label>Email</label>
-  <input ng-model="auth.email" type="text"/>
-  <label>Password</label>
-  <input ng-model="auth.password" type="password" required/>
-  <button type="button" ng-click="registerToggle()">Register</button>
-  <button type="submit">Log In</button>
-</form>
+<div class="container">
+  <div class="card shadow">
+
+    <div class="toolbar">
+      <h2 class="toolbarTitle">Welcome!</h2>
+    </div>
+    <div class="form-container">
+
+      <form ng-submit="authEmail(auth)" ng-show="login">
+        <div class="form-row">
+          <label for="loginemail">Email</label>
+          <input id="loginemail" placeholder="john@doe.com" class="input form" ng-model="auth.email" type="text"/>
+        </div>
+        <div class="form-row">
+          <label for="loginpw">Password</label>
+          <input id="loginpw" placeholder="password1" class="input form" ng-model="auth.password" type="password"
+                 required/>
+        </div>
+        <button type="submit" ng-show="register"></button>
+      </form>
 
 
-<form ng-submit="createUser(user)" ng-show="register">
-  <label>Email</label>
-  <input ng-model="user.email" type="text" required/>
-  <label >Password</label>
-  <input ng-model="user.password" type="password" required/>
-  <label >First Name</label>
-  <input ng-model="user.firstName" type="text"/>
-  <label >Last Name</label>
-  <input ng-model="user.lastName" type="text"/>
-  <label >Phone Number</label>
-  <input ng-model="user.phone" type="text" required/>
-  <button type="submit">Register New User</button>
-  <button type="button" ng-click="registerToggle()">Cancel</button>
+      <form ng-submit="createUser(user)" ng-show="register">
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" class="input form" ng-model="user.email" type="text" required/>
+        </div>
+        <div class="form-row">
+          <label for="password">Password</label>
+          <input id="password" class="input form" ng-model="user.password" type="password" required/>
+        </div>
+        <div class="form-row">
+          <label>First Name</label>
+          <input class="input form" ng-model="user.firstName" type="text"/>
+        </div>
+        <div class="form-row">
+          <label>Last Name</label>
+          <input class="input form" ng-model="user.lastName" type="text"/>
+        </div>
+        <div class="form-row">
+          <label>Phone #</label>
+          <input class="input form" ng-model="user.phone" type="text" required/>
+        </div>
 
-</form>
+        <button type="submit" ng-show="login"></button>
+      </form>
+    </div>
+    <button class="btn btn-default pull-right" type="button" ng-click="registerToggle()" ng-show="login">Register
+    </button>
+    <button class="btn pull-right" ng-click="authEmail(auth)" ng-show="login">Log In</button>
+
+    <button class="btn btn-default pull-right" type="button" ng-click="registerToggle()" ng-show="register">Cancel
+    </button>
+    <button class="btn pull-right" ng-click="createUser(user)" ng-show="register">Register New User</button>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 /**
  * Created by danielbullock on 3/17/15.
  */
-angular.module("textTwilio").service("authService", function (firebaseService, $http, $q, $cookies) {
+angular.module("textTwilio").service("authService", function (firebaseService, $http, $q) {
 
   this.login = function (auth) {
     var deferred = $q.defer();

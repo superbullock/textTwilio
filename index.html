@@ -3,24 +3,25 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title></title>
-
+  <link rel="stylesheet" href="style.css"/>
   <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-cookies.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.js"></script>
 
 </head>
 <body ng-app="textTwilio">
 <div ng-controller="indexCtrl">
-  <div style="height: 50px">
-    <a style="float: right" href="#/login" ng-click="logout()">Login  </a>
-    <a style="float: right" href="#/login" ng-click="logout()">Logout</a>
+  <div class="header">
+    <button class="brandbtn" ng-click="homeOrSplash(loggedin)"><p class="brand" >megaPhone</p></button>
+    <a class="loginlink" href="#/login" ng-click="logout()" ng-show="loggedin">Logout</a>
+    <a class="loginlink" href="#/login" ng-click="logout()" ng-show="!loggedin">Login</a>
   </div>
-  <ng-view></ng-view>
+
+  <div class="mainView">
+    <ng-view></ng-view>
+  </div>
 
 </div>
 
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 
 
