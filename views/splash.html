@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card shadow">
+  <div ng-class="{'splashCard':!sentTest, 'sentCard':sentTest }" class="card shadow">
     <div class="toolbar">
       <h2 class="toolbarTitle">Welcome!</h2>
     </div>
@@ -10,7 +10,9 @@
       <input class ="input" required ng-model="message.to" placeholder="867-5309" type="text"/>
       <button class="btn" type="submit">Send</button>
     </form>
+    <div ng-show="sentTest">
     <p>Ready to create an account?</p>
     <button class="btn"><a class="link" href="#/login">Register/Login</a></button>
+    </div>
   </div>
 </div>

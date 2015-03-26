@@ -37,7 +37,7 @@ angular.module("textTwilio").controller("adminCtrl", function ($scope, user, con
     })
   }
 
-  $scope.messageStream = false;
+  $scope.messageStream = true;
 
   $scope.toggleMessageStream = function() {
     $scope.messageStream = !$scope.messageStream;

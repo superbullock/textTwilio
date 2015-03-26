@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card shadow">
+  <div ng-class="{'loginCard':login, 'registerCard':!login}" class="card shadow">
 
     <div class="toolbar">
       <h2 class="toolbarTitle">Welcome!</h2>
@@ -23,23 +23,23 @@
       <form ng-submit="createUser(user)" ng-show="register">
         <div class="form-row">
           <label for="email">Email</label>
-          <input id="email" class="input form" ng-model="user.email" type="text" required/>
+          <input placeholder="john@gmail.com" id="email" class="input form" ng-model="user.email" type="text" required/>
         </div>
         <div class="form-row">
           <label for="password">Password</label>
-          <input id="password" class="input form" ng-model="user.password" type="password" required/>
+          <input placeholder="john1" id="password" class="input form" ng-model="user.password" type="password" required/>
         </div>
         <div class="form-row">
           <label>First Name</label>
-          <input class="input form" ng-model="user.firstName" type="text"/>
+          <input placeholder="John" class="input form" ng-model="user.firstName" type="text"/>
         </div>
         <div class="form-row">
           <label>Last Name</label>
-          <input class="input form" ng-model="user.lastName" type="text"/>
+          <input placeholder="Doe" class="input form" ng-model="user.lastName" type="text"/>
         </div>
         <div class="form-row">
           <label>Phone #</label>
-          <input class="input form" ng-model="user.phone" type="text" required/>
+          <input placeholder="808-555-8080" class="input form" ng-model="user.phone" type="text" required/>
         </div>
 
         <button type="submit" ng-show="login"></button>

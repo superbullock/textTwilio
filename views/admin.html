@@ -1,33 +1,39 @@
 <div>
-
-  <form ng-submit="composeMessage(message)">
-    <label> Message Text</label>
-    <textarea ng-model='message.body' cols="30" rows="10"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-  <br/>
-
-  <button ng-click="toggleMessageStream()">Show Recent Messages</button>
-  <br/>
-  <div ng-repeat="message in messages" ng-show="messageStream">
-    {{message.body}}
+  <div class="messageRow">
+    <form class="messageForm" ng-submit="composeMessage(message)">
+      <label class="message msgLabel">Compose a message</label>
+      <textarea placeholder="Create a message for all your contacts!" class="message input" ng-model='message.body'
+                cols="30" rows="10" required></textarea>
+      <button class="message btn" type="submit">Send Message</button>
+    </form>
   </div>
-  <br/>
-  <form ng-submit="createContact(newContact)">
-    <label>Name</label>
-    <input placeholder="John Doe" ng-model="newContact.name" type="text"/>
-    <label>10 Digit Phone Number</label>
-    <input placeholder="8015386655" ng-model="newContact.phone" type="text" required/>
-    <button type="submit">Add Contact</button>
-  </form>
-  <br/><br/>
 
-  <div>
-    <div ng-repeat="contact in contacts">
-      <div>
-        <button ng-click="deleteContact(contact._id)">x</button>
-        {{contact.name}} - {{contact.phone}}
-        <hr/>
+  <div class="messageStream">
+    <button ng-click="toggleMessageStream()">Show Recent Messages</button>
+
+    <div ng-repeat="message in messages" ng-show="messageStream">
+      {{message.body}}
+    </div>
+  </div>
+  <div class="contactContainer">
+    <div class="newContact">
+      <form ng-submit="createContact(newContact)">
+        <label>Name</label>
+        <input class="input contactInput" placeholder="John Doe" ng-model="newContact.name" type="text"/>
+        <label>Phone #</label>
+        <input class="input contactInput" placeholder="8015386655" ng-model="newContact.phone" type="text" required/>
+        <button type="submit">Add Contact</button>
+      </form>
+
+
+      <div class="contactList">
+        <div ng-repeat="contact in contacts">
+          <div class="contactBox">
+            <button ng-click="deleteContact(contact._id)">x</button>
+            {{contact.name}}
+            {{contact.phone}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
