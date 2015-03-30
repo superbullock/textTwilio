@@ -8,15 +8,28 @@ angular.module("textTwilio").factory('messageService', function ($q, $http) {
     composeMessage: function (message, contacts, uid) {
       var deferred = $q.defer()
       $http.post('/messageHistory/' + uid, message).then();
-      var promises = [];
-      for (var i = 0; i < contacts.length; i++) {
-        message.to = contacts[i].phone;
-        promises.push($http.post('/messages', message))
+      //var promises = [];
+      //var sms = [];
+      //for (var i = 0; i < contacts.length; i++) {
+      //  debugger
+      //  sms[i] = message
+      //  sms[i].to = contacts[i].phone;
+      //  promises.push($http.post('/messages', sms[i]));
+      //
+      //}
+      //
+      //$q.all(promises).then(function(res) {
+      //  deferred.resolve("Success!")
+      //})
+      var messageObj = {
+        message: message,
+        contacts: contacts
       }
-      $q.all(promises).then(function(res) {
-        deferred.resolve("Success!")
+      $http.post('/messages', messageObj).then(function(res) {
+        deferred.resolve("Success")
       })
       return deferred.promise;
+
     },
 
     getMessages: function (uid) {
@@ -34,7 +47,7 @@ angular.module("textTwilio").factory('messageService', function ($q, $http) {
     },
 
     simpleMessage: function (message) {
-      $http.post("/messages", message);
+      $http.post("/testmessage", message);
     }
   }
 

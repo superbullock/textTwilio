@@ -16,7 +16,9 @@ var User = mongoose.model('User', {firstName: String, phone: String, groups: Arr
 
 var Contact = mongoose.model("Contact", {name: String, phone: String, groups: Array, uid: String});
 
-var Message = mongoose.model("Message", {body: String, date: Number, uid: String})
+var Message = mongoose.model("Message", {body: String, date: Number, uid: String});
+
+var SplashUser = mongoose.model("SplashUser", {phone: String});
 
 app = express();
 
@@ -35,12 +37,38 @@ app.get("/messages/:id", function(req, res) {
 
 app.post("/messages", function (req, res) {
   if (!req.body) return res.sendStatus(400)
+  for (var i = 0; i < req.body.contacts.length; i++) {
+    msg = req.body.message;
+    msg.to = req.body.contacts[i].phone;
+    msg.from = secret.myNum;
+    client.messages.create(msg, function(err, message) {
+      if (err) console.log(err + " " + message)
+    })
+    res.send(req.body.message)
+  }
+
+
+  //req.body.from = secret.myNum;
+  //client.messages.create(req.body, function (err, message) {
+  //  if (err) console.log(err + " " + message)
+  //  res.send(message)
+  //res.send("testing")
+  //})
+})
+
+app.post("/testmessage", function(req, res) {
+  //var user = new SplashUser(req.body.message.to);
+  //user.save(function(err) {
+  //  if (err) res.send(err);
+  //  res.send("Saved Message");
+  //});
   req.body.from = secret.myNum;
   client.messages.create(req.body, function (err, message) {
     if (err) console.log(err + " " + message)
     res.send(message)
-  })
-})
+  });
+
+});
 
 app.post("/messageHistory/:uid", function (req,res) {
   req.body.to = null;
