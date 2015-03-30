@@ -1,7 +1,8 @@
 /**
  * Created by danielbullock on 3/17/15.
  */
-angular.module("textTwilio").service("contactService", function ($http, $q) {
+angular.module("textTwilio")
+    .service("contactService", function ($http, $q) {
   this.getContacts = function (userid) {
     var deferred = $q.defer();
     $http.get('/contacts/' + userid).then(function(res) {

@@ -1,40 +1,52 @@
-<div>
+<div class="adminContainer">
   <div class="messageRow">
     <form class="messageForm" ng-submit="composeMessage(message)">
       <label class="message msgLabel">Compose a message</label>
-      <textarea placeholder="Create a message for all your contacts!" class="message input" ng-model='message.body'
+      <textarea placeholder="Create a message for all your contacts!" class="darkShadow message input"
+                ng-model='message.body'
                 cols="30" rows="10" required></textarea>
       <button class="message btn" type="submit">Send Message</button>
     </form>
   </div>
+  <div class="bottomContent">
+    <div class="messageStream">
+      <!--<button ng-click="toggleMessageStream()">Show Recent Messages</button>-->
+      <h4 class="messageHead">Recent Messages</h4>
 
-  <div class="messageStream">
-    <button ng-click="toggleMessageStream()">Show Recent Messages</button>
-
-    <div ng-repeat="message in messages" ng-show="messageStream">
-      {{message.body}}
+      <div ng-repeat="message in messages" ng-show="messageStream">
+        <div class="messageItem messageBody">"{{message.body}}"</div>
+          <div class="messageItem messageDate">{{message.date | date: "short"}}</div>
+      </div>
     </div>
-  </div>
-  <div class="contactContainer">
-    <div class="newContact">
-      <form ng-submit="createContact(newContact)">
-        <label>Name</label>
-        <input class="input contactInput" placeholder="John Doe" ng-model="newContact.name" type="text"/>
-        <label>Phone #</label>
-        <input class="input contactInput" placeholder="8015386655" ng-model="newContact.phone" type="text" required/>
-        <button type="submit">Add Contact</button>
-      </form>
+    <div class="contactContainer">
+      <div class="newContact">
+        <form ng-submit="createContact(newContact)">
+          <label>Name</label>
+          <input class="input contactInput" placeholder="John Doe" ng-model="newContact.name" type="text"/>
+          <label>Phone #</label>
+          <input class="input contactInput" placeholder="8015386655" ng-model="newContact.phone" type="text" required/>
+          <button class="btn contactInput link" type="submit">Add Contact</button>
+        </form>
+        <a href="" class="menu link" ng-click="menuToggle()"><i class="icon-menu"></i></a>
+      </div>
 
+      <div class="editList" ng-show="menuOpen">
+        <input class="input edit editinput" placeholder="Search Name or Number" ng-model="listFilter" type="text"/>
+        <button class="btn edit editbtn" ng-click="editTgl()">{{deleteContacts}}</button>
+      </div>
 
       <div class="contactList">
-        <div ng-repeat="contact in contacts">
-          <div class="contactBox">
-            <button ng-click="deleteContact(contact._id)">x</button>
-            {{contact.name}}
-            {{contact.phone}}
+        <div ng-repeat="contact in contacts | filter: listFilter">
+          <div class="contactBox darkShadow">
+            <p class="contactText">{{contact.name}}
+              <span class="contactText contactPhone">{{contact.phone}}</span></p>
+            <a class="pencil link" href="" ng-click="contactEdit(contact)" ng-show="editToggle"><i class="icon-pencil"></i></a>
+            <a class="pencil link" href="" ng-click="deleteContact(contact._id)" ng-hide="editToggle"><i class="icon-cancel"></i></a>
+
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

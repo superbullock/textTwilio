@@ -1,4 +1,4 @@
-var app = angular.module("textTwilio", ['ngRoute']);
+var app = angular.module("textTwilio", ['ngRoute', 'ngDialog']);
 
 app.config(function ($routeProvider) {
   $routeProvider

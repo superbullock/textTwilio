@@ -22,7 +22,13 @@ angular.module("textTwilio").factory('messageService', function ($q, $http) {
     getMessages: function (uid) {
       var deferred = $q.defer()
       $http.get('/messages/' + uid).then(function(res) {
-        deferred.resolve(res.data)
+        var arr = res.data.reverse();
+        if (arr.length > 5) {
+          var newArr = arr.slice(0, 5)
+        } else {
+          var newArr = arr.slice()
+        }
+        deferred.resolve(newArr)
       })
       return deferred.promise;
     },
