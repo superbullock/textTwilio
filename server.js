@@ -83,6 +83,14 @@ app.post("/messageHistory/:uid", function (req,res) {
 })
 
 //User
+//
+//app.post("/splashNumber", function(req, res) {
+//  user = new SplashUser(req.body.to);
+//  user.save(function(err) {
+//    if (err) res.send(err)
+//    res.send()
+//  });
+//})
 
 app.get("/user/:id", function(req, res) {
   User.find({ uid: req.params.id}, function(err, data) {

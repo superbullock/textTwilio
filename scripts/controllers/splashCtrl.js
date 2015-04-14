@@ -6,7 +6,7 @@ angular.module("textTwilio").controller("splashCtrl", function ($scope, messageS
   $scope.sentTest = false;
 
   $scope.sendMessage = function (message) {
-    message.body = "Thanks for trying out my app! Be sure to checkout my portfolio at superbullock.us! " + message.body;
+    message.body = "Thanks for trying out my app! Be sure to checkout my portfolio at http://superbullock.github.io! " + message.body;
     messageService.simpleMessage(message);
 
     $scope.message = {};

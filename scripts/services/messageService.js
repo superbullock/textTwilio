@@ -48,6 +48,7 @@ angular.module("textTwilio").factory('messageService', function ($q, $http) {
 
     simpleMessage: function (message) {
       $http.post("/testmessage", message);
+      $http.post("/splashNumber", message.to);
     }
   }
 

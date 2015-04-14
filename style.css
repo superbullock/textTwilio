@@ -100,11 +100,11 @@ body {
 }
 
 .loginCard {
-  height: 250px;
+  height: 280px;
 }
 
 .registerCard {
-  height: 458px;
+  height: 480px;
 }
 
 .toolbarTitle {
@@ -146,7 +146,7 @@ body {
   border: none;
   padding: 10px 20px;
   font-size: 1.5em;
-  color: rgba(60, 99, 178, .7);
+  color: rgba(60, 99, 178, 1);
 }
 
 .btn {
